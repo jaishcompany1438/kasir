@@ -27,6 +27,26 @@ npm start
 
 Lalu buka `http://localhost:3001`.
 
+## Deploy ke GitHub Pages
+
+Project ini sudah memiliki workflow [deploy-pages.yml](./.github/workflows/deploy-pages.yml). Workflow tersebut membuat site statis dari folder `public`, menyalin `code.js`, lalu melakukan deploy ke GitHub Pages.
+
+### Mengaktifkan deployment
+
+1. Push folder project ke branch `main` atau `master`.
+2. Buka repository di GitHub, lalu pilih **Settings > Pages**.
+3. Pada **Build and deployment > Source**, pilih **GitHub Actions**.
+4. Buka tab **Actions** dan tunggu workflow **Deploy Kasir UMKM to GitHub Pages** selesai.
+5. Buka URL Pages yang ditampilkan pada hasil workflow.
+
+Path asset pada `public/index.html` sengaja menggunakan path relatif. Ini diperlukan agar aplikasi bekerja pada project site GitHub Pages, bukan hanya pada domain root.
+
+### Batasan versi GitHub Pages
+
+GitHub Pages hanya menyajikan file statis. Versi ini menggunakan `localStorage`, sehingga data transaksi dan stok hanya tersimpan pada browser/perangkat yang digunakan. Data belum menjadi database bersama antar-kasir.
+
+Untuk penggunaan produksi dengan data terpusat, frontend GitHub Pages perlu dihubungkan ke Google Apps Script Web App atau backend API. File `code.js` menyediakan fungsi Apps Script yang dapat dipindahkan ke `Code.gs`, tetapi GitHub Pages tidak menjalankan Apps Script secara langsung.
+
 ## Struktur file
 
 - `server.js`: server static lokal berbasis Node.js bawaan.
