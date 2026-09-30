@@ -1,0 +1,12 @@
+{
+  "name": "kasir-umkm-spreadsheet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi kasir UMKM lokal dengan fondasi kompatibel Google Apps Script",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
